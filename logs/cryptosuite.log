@@ -1,0 +1,49 @@
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=13 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=13 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=0 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=25 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=24 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=23 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=22 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=21 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=20 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=19 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=18 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=17 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=16 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=15 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=14 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=13 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=12 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=11 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=10 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=9 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=8 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=7 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=6 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=5 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=4 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=3 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=2 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.caesar — Caesar encrypt: shift=1 len=13
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.vigenere — Vigenere encrypt: key_len=5 text_len=14
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.vigenere — Vigenere encrypt: key_len=5 text_len=14
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.hill — HillCipher init: size=2 det=9
+2026-05-02 10:30:50 [DEBUG   ] cryptosuite.hill — Hill encrypt: blocks=2
+2026-05-02 10:30:51 [DEBUG   ] cryptosuite.rc4 — RC4 encrypt: key_len=9 data_len=10
+2026-05-02 10:30:51 [DEBUG   ] cryptosuite.rc4 — RC4 encrypt: key_len=9 data_len=10
+2026-05-02 10:30:51 [DEBUG   ] cryptosuite.aes — AES-128 CBC encrypt: len=16
+2026-05-02 10:30:51 [INFO    ] cryptosuite.aes — AES-CTR nonce-reuse attack demo completed
+2026-05-02 11:35:38 [ERROR   ] cryptosuite.main — Unhandled exception
+Traceback (most recent call last):
+  File "c:\Users\User\crypto_suite\main.py", line 806, in <module>
+    main()
+  File "c:\Users\User\crypto_suite\main.py", line 796, in main
+    menu_secure_app()
+  File "c:\Users\User\crypto_suite\main.py", line 605, in menu_secure_app
+    port = int(port_input) if port_input else 9999
+           ^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'uhg'
+2026-05-02 11:37:26 [INFO    ] cryptosuite.server — Server: generating 1024-bit RSA keypair…
+2026-05-02 11:37:26 [INFO    ] cryptosuite.rsa — RSA keygen: bits=1024 p_bits=512 q_bits=512
+2026-05-02 11:37:26 [INFO    ] cryptosuite.server — Server: RSA keypair ready
