@@ -1,4 +1,4 @@
-"""CryptoSuite — Classical + Symmetric Cryptography CLI."""
+"""SecureCipher — Classical + Symmetric Cryptography CLI."""
 import sys
 import os
 
@@ -10,9 +10,8 @@ from utils.logger import get_logger
 
 from classical import caesar, vigenere, hill, otp
 from symmetric import rc4, aes_cipher
-from symmetric.benchmark import benchmark_symmetric
 from asymmetric import diffie_hellman, ecc, elgamal, rsa
-from hashing import FileIntegrity, HashFunctions, benchmark_hashing
+from hashing import FileIntegrity, HashFunctions
 from signatures import RSASigner, ECDSASigner
 from secure_app import SecureClient, SecureServer
 
@@ -474,60 +473,6 @@ def menu_hashing() -> None:
         pause()
 
 
-def menu_benchmarks() -> None:
-    while True:
-        header("Performance Benchmarks")
-        print("  [1] Symmetric cipher benchmark")
-        print("  [2] Hash algorithm benchmark")
-        print("  [0] Back")
-
-        choice = ask("Choice")
-
-        if choice == "0":
-            return
-
-        elif choice == "1":
-            size_input = ask("Benchmark size in MB (default 5)")
-            try:
-                size_mb = float(size_input) if size_input else 5.0
-            except ValueError:
-                size_mb = 5.0
-
-            print("\n  Running symmetric cipher benchmark...")
-            results = benchmark_symmetric(size_mb)
-            if results:
-                rows = [
-                    [row["cipher"], row["key_bits"], row["mode"], row["data_MB"], row["time_s"], row["throughput_MB_s"]]
-                    for row in results
-                ]
-                print(tabulate(rows, headers=["Cipher", "Key bits", "Mode", "Size MB", "Time s", "MB/s"], tablefmt="grid"))
-            else:
-                print_error("No benchmark results available.")
-
-        elif choice == "2":
-            size_input = ask("Benchmark size in MB (default 10)")
-            try:
-                size_mb = float(size_input) if size_input else 10.0
-            except ValueError:
-                size_mb = 10.0
-
-            print("\n  Running hashing benchmark...")
-            results = benchmark_hashing(size_mb)
-            if results:
-                rows = [
-                    [row["algorithm"], row["digest_bits"], row["data_MB"], row["time_s"], row["throughput_MB_s"]]
-                    for row in results
-                ]
-                print(tabulate(rows, headers=["Algorithm", "Bits", "Size MB", "Time s", "MB/s"], tablefmt="grid"))
-            else:
-                print_error("No benchmark results available.")
-
-        else:
-            print_error("Invalid choice.")
-
-        pause()
-
-
 def menu_signatures() -> None:
     while True:
         header("Digital Signatures")
@@ -764,17 +709,16 @@ def main() -> None:
     while True:
         clear()
         print("""
-  ================================
-    CryptoSuite Pro
-  ================================
-  [1] Classical Cryptography
-  [2] Symmetric Cryptography
-  [3] Asymmetric Cryptography
-  [4] Hashing
-  [5] Digital Signatures
-  [6] Secure Application
-  [7] Performance Benchmarks
-  [0] Exit
+   =============================
+        QuickCipher
+   =============================
+   [1] Classical Cryptography
+   [2] Symmetric Cryptography
+   [3] Asymmetric Cryptography
+   [4] Hashing
+   [5] Digital Signatures
+   [6] Secure Application
+   [0] Exit
         """)
 
         choice = ask("Choice")
@@ -794,8 +738,6 @@ def main() -> None:
             menu_signatures()
         elif choice == "6":
             menu_secure_app()
-        elif choice == "7":
-            menu_benchmarks()
         else:
             print_error("Invalid choice.")
             pause()

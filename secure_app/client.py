@@ -130,7 +130,7 @@ def interactive_chat(host: str = "127.0.0.1", port: int = 9999) -> None:
 if __name__ == "__main__":
     import argparse, sys, pathlib
     sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
-    parser = argparse.ArgumentParser(description="CryptoSuite Secure Client")
+    parser = argparse.ArgumentParser(description="SecureCipher Secure Client")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=9999)
     args = parser.parse_args()

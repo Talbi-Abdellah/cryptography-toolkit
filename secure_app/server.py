@@ -159,7 +159,7 @@ class SecureServer:
 
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description="CryptoSuite Secure Server")
+    parser = argparse.ArgumentParser(description="SecureCipher Secure Server")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=9999)
     parser.add_argument("--bits", type=int, default=2048)

@@ -1,4 +1,4 @@
-"""Asymmetric cryptography algorithms for CryptoSuite."""
+"""Asymmetric cryptography algorithms for SecureCipher."""
 
 from . import diffie_hellman, ecc, elgamal, rsa
 

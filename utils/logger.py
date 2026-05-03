@@ -1,4 +1,4 @@
-"""Centralised logging for CryptoSuite Pro."""
+"""Centralised logging for SecureCipher Pro."""
 import logging
 import logging.handlers
 import os

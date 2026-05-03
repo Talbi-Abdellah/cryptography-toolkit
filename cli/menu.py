@@ -1,4 +1,4 @@
-"""Main CLI menu system for CryptoSuite Pro."""
+"""Main CLI menu system for SecureCipher Pro."""
 import os
 import sys
 

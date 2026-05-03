@@ -47,3 +47,7 @@ ValueError: invalid literal for int() with base 10: 'uhg'
 2026-05-02 11:37:26 [INFO    ] cryptosuite.server — Server: generating 1024-bit RSA keypair…
 2026-05-02 11:37:26 [INFO    ] cryptosuite.rsa — RSA keygen: bits=1024 p_bits=512 q_bits=512
 2026-05-02 11:37:26 [INFO    ] cryptosuite.server — Server: RSA keypair ready
+2026-05-03 11:41:29 [INFO    ] cryptosuite.hash_bench — Hash bench md5: 353.44 MB/s
+2026-05-03 11:41:29 [INFO    ] cryptosuite.hash_bench — Hash bench sha256: 761.09 MB/s
+2026-05-03 11:41:29 [INFO    ] cryptosuite.hash_bench — Hash bench sha512: 393.39 MB/s
+2026-05-03 18:40:37 [INFO    ] cryptosuite.main — Application interrupted by user.
