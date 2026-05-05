@@ -107,3 +107,43 @@ ValueError: invalid literal for int() with base 10: 'uhg'
 2026-05-05 10:05:04 [INFO    ] cryptosuite.vote_server — Connection from ('127.0.0.1', 65096)
 2026-05-05 10:05:08 [INFO    ] cryptosuite.vote_server — Vote accepted from ('127.0.0.1', 65096) (3/3)
 2026-05-05 10:05:08 [INFO    ] cryptosuite.vote_server — Final tally: yes_votes=2
+2026-05-05 10:39:56 [INFO    ] cryptosuite.server — Server: generating 2048-bit RSA keypairs (exchange + signing)…
+2026-05-05 10:39:56 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 10:39:58 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 10:39:58 [INFO    ] cryptosuite.server — Server: RSA keypairs ready
+2026-05-05 10:39:58 [INFO    ] cryptosuite.server — Server: listening on 127.0.0.1:9999
+2026-05-05 10:40:21 [INFO    ] cryptosuite.client — Client: generating 2048-bit RSA keypair for signing…
+2026-05-05 10:40:22 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 10:40:22 [INFO    ] cryptosuite.client — Client: RSA keypair for signing ready
+2026-05-05 10:40:22 [INFO    ] cryptosuite.client — [SECURE] Connected to 127.0.0.1:9999
+2026-05-05 10:40:22 [INFO    ] cryptosuite.server — Server: connection from ('127.0.0.1', 62365)
+2026-05-05 10:40:22 [INFO    ] cryptosuite.client — Client: received server's RSA public keys (key_exchange=2047 bits, signing=2048 bits)
+2026-05-05 10:40:22 [INFO    ] cryptosuite.server — Server: handshake complete, AES key=e2f955a471578aeb…
+2026-05-05 10:40:22 [INFO    ] cryptosuite.client — Client: handshake complete, AES key=e2f955a471578aeb…
+2026-05-05 10:40:22 [INFO    ] cryptosuite.client — Client: connected and handshake complete
+2026-05-05 10:40:39 [DEBUG   ] cryptosuite.client — Client: sent 7 bytes, hash=9172e8eec99f144f..., sig=40543c7c618456b4...
+2026-05-05 10:40:39 [INFO    ] cryptosuite.server — Server [session 0]: received 7 bytes (hash_ok=True sig_ok=True)
+2026-05-05 10:40:39 [DEBUG   ] cryptosuite.client — Client: hash verified ✓
+2026-05-05 10:40:39 [DEBUG   ] cryptosuite.client — Client: signature verified ✓
+2026-05-05 10:43:54 [INFO    ] cryptosuite.client — Client: disconnected
+2026-05-05 10:43:54 [INFO    ] cryptosuite.server — Server: connection closed ('127.0.0.1', 62365)
+2026-05-05 10:44:18 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 10:44:19 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 10:44:20 [INFO    ] cryptosuite.udp_server — UDP server listening on 0.0.0.0:9998
+2026-05-05 10:48:17 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 10:48:17 [INFO    ] cryptosuite.udp_server — Received HELLO from ('127.0.0.1', 64551)
+2026-05-05 10:48:17 [INFO    ] cryptosuite.udp_server — Sent HELLO (pubkeys) to ('127.0.0.1', 64551)
+2026-05-05 10:48:17 [INFO    ] cryptosuite.udp_server — Handshake done with ('127.0.0.1', 64551) (AES key established)
+2026-05-05 10:48:17 [INFO    ] cryptosuite.udp_client — Handshake complete with server 127.0.0.1:9998
+2026-05-05 10:48:24 [INFO    ] cryptosuite.udp_server — Received message from ('127.0.0.1', 64551): 7 bytes (hash_ok=True sig_ok=True)
+2026-05-05 10:51:08 [INFO    ] cryptosuite.vote_server — Vote server listening on 127.0.0.1:10000
+2026-05-05 10:51:35 [INFO    ] cryptosuite.vote_client — Connected to voting server at 127.0.0.1:10000
+2026-05-05 10:51:35 [INFO    ] cryptosuite.vote_server — Connection from ('127.0.0.1', 59471)
+2026-05-05 10:51:39 [INFO    ] cryptosuite.vote_server — Vote accepted from ('127.0.0.1', 59471) (1/3)
+2026-05-05 10:51:56 [INFO    ] cryptosuite.vote_client — Connected to voting server at 127.0.0.1:10000
+2026-05-05 10:51:56 [INFO    ] cryptosuite.vote_server — Connection from ('127.0.0.1', 59473)
+2026-05-05 10:52:06 [INFO    ] cryptosuite.vote_server — Vote accepted from ('127.0.0.1', 59473) (2/3)
+2026-05-05 10:52:17 [INFO    ] cryptosuite.vote_client — Connected to voting server at 127.0.0.1:10000
+2026-05-05 10:52:17 [INFO    ] cryptosuite.vote_server — Connection from ('127.0.0.1', 55845)
+2026-05-05 10:52:20 [INFO    ] cryptosuite.vote_server — Vote accepted from ('127.0.0.1', 55845) (3/3)
+2026-05-05 10:52:20 [INFO    ] cryptosuite.vote_server — Final tally: yes_votes=2
