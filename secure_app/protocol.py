@@ -4,6 +4,7 @@ import struct
 from dataclasses import dataclass, field
 from enum import IntEnum
 from typing import Any, Dict, Optional
+import hashlib
 
 MAGIC = b"CSPRO"   # 5-byte protocol magic
 VERSION = 1
@@ -60,51 +61,75 @@ class SecureProtocol:
 
     @staticmethod
     def make_hello(rsa_public_pem: str) -> Frame:
-        return Frame(MessageType.HANDSHAKE_HELLO, rsa_public_pem.encode())
+        # Send both key-exchange and signing public keys as JSON
+        try:
+            # If caller passed a JSON string already, return it
+            data = json.loads(rsa_public_pem)
+            payload = rsa_public_pem.encode()
+        except Exception:
+            payload = json.dumps({"key_exchange_pub": rsa_public_pem}).encode()
+        return Frame(MessageType.HANDSHAKE_HELLO, payload)
 
     @staticmethod
-    def make_key_exchange(encrypted_aes_key: bytes, iv: bytes) -> Frame:
-        payload = json.dumps({
+    def make_key_exchange(encrypted_aes_key: bytes, iv: bytes, client_signing_pub: Optional[str] = None) -> Frame:
+        obj: Dict[str, str] = {
             "enc_key": encrypted_aes_key.hex(),
             "iv": iv.hex(),
-        }).encode()
+        }
+        if client_signing_pub:
+            obj["client_signing_pub"] = client_signing_pub
+        payload = json.dumps(obj).encode()
         return Frame(MessageType.HANDSHAKE_KEY, payload)
 
     @staticmethod
-    def parse_key_exchange(frame: Frame) -> tuple[bytes, bytes]:
+    def parse_key_exchange(frame: Frame) -> tuple[bytes, bytes, Optional[str]]:
         data = json.loads(frame.payload.decode())
-        return bytes.fromhex(data["enc_key"]), bytes.fromhex(data["iv"])
+        return bytes.fromhex(data["enc_key"]), bytes.fromhex(data["iv"]), data.get("client_signing_pub")
 
     @staticmethod
     def make_handshake_done() -> Frame:
         return Frame(MessageType.HANDSHAKE_DONE, b"OK")
 
     @staticmethod
-    def make_data(iv: bytes, ciphertext: bytes) -> Frame:
-        payload = json.dumps({
-            "iv": iv.hex(),
-            "ct": ciphertext.hex(),
-        }).encode()
+    def make_data(iv: bytes, ciphertext: bytes, plaintext_hash: Optional[str] = None, signature: Optional[str] = None) -> Frame:
+        obj: Dict[str, str] = {"iv": iv.hex(), "ct": ciphertext.hex()}
+        if plaintext_hash is not None:
+            obj["hash"] = plaintext_hash
+        if signature is not None:
+            obj["sig"] = signature
+        payload = json.dumps(obj).encode()
         return Frame(MessageType.DATA, payload)
 
     @staticmethod
-    def parse_data(frame: Frame) -> tuple[bytes, bytes]:
+    def parse_data(frame: Frame) -> tuple[bytes, bytes, Optional[str], Optional[str]]:
         data = json.loads(frame.payload.decode())
-        return bytes.fromhex(data["iv"]), bytes.fromhex(data["ct"])
+        return (
+            bytes.fromhex(data["iv"]),
+            bytes.fromhex(data["ct"]),
+            data.get("hash"),
+            data.get("sig"),
+        )
 
     @staticmethod
-    def make_chat(iv: bytes, ciphertext: bytes, sender: str = "anon") -> Frame:
-        payload = json.dumps({
-            "sender": sender,
-            "iv": iv.hex(),
-            "ct": ciphertext.hex(),
-        }).encode()
+    def make_chat(iv: bytes, ciphertext: bytes, sender: str = "anon", plaintext_hash: Optional[str] = None, signature: Optional[str] = None) -> Frame:
+        obj: Dict[str, Any] = {"sender": sender, "iv": iv.hex(), "ct": ciphertext.hex()}
+        if plaintext_hash is not None:
+            obj["hash"] = plaintext_hash
+        if signature is not None:
+            obj["sig"] = signature
+        payload = json.dumps(obj).encode()
         return Frame(MessageType.CHAT, payload)
 
     @staticmethod
-    def parse_chat(frame: Frame) -> tuple[str, bytes, bytes]:
+    def parse_chat(frame: Frame) -> tuple[str, bytes, bytes, Optional[str], Optional[str]]:
         data = json.loads(frame.payload.decode())
-        return data["sender"], bytes.fromhex(data["iv"]), bytes.fromhex(data["ct"])
+        return (
+            data["sender"],
+            bytes.fromhex(data["iv"]),
+            bytes.fromhex(data["ct"]),
+            data.get("hash"),
+            data.get("sig"),
+        )
 
     @staticmethod
     def make_error(message: str) -> Frame:
@@ -139,3 +164,12 @@ def _recv_exact(sock, n: int) -> bytes:
             raise ConnectionError("Connection closed before receiving all bytes")
         buf += chunk
     return buf
+
+
+def compute_sha256(data: bytes) -> str:
+    """Return SHA-256 hex digest for given bytes."""
+    return hashlib.sha256(data).hexdigest()
+
+
+def verify_sha256(data: bytes, expected_hex: str) -> bool:
+    return compute_sha256(data) == expected_hex
