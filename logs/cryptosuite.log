@@ -147,3 +147,50 @@ ValueError: invalid literal for int() with base 10: 'uhg'
 2026-05-05 10:52:17 [INFO    ] cryptosuite.vote_server — Connection from ('127.0.0.1', 55845)
 2026-05-05 10:52:20 [INFO    ] cryptosuite.vote_server — Vote accepted from ('127.0.0.1', 55845) (3/3)
 2026-05-05 10:52:20 [INFO    ] cryptosuite.vote_server — Final tally: yes_votes=2
+2026-05-05 11:21:20 [INFO    ] cryptosuite.server — Server: generating 2048-bit RSA keypairs (exchange + signing)…
+2026-05-05 11:21:20 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:21:22 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:21:22 [INFO    ] cryptosuite.server — Server: RSA keypairs ready
+2026-05-05 11:21:22 [INFO    ] cryptosuite.server — Server: listening on 127.0.0.1:9999
+2026-05-05 11:21:24 [INFO    ] cryptosuite.client — Client: generating 2048-bit RSA keypair for signing…
+2026-05-05 11:21:25 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:21:25 [INFO    ] cryptosuite.client — Client: RSA keypair for signing ready
+2026-05-05 11:21:25 [INFO    ] cryptosuite.client — [SECURE] Connected to 127.0.0.1:9999
+2026-05-05 11:21:25 [INFO    ] cryptosuite.server — Server: connection from ('127.0.0.1', 57943)
+2026-05-05 11:21:25 [INFO    ] cryptosuite.client — Client: received server's RSA public keys (key_exchange=2048 bits, signing=2048 bits)
+2026-05-05 11:21:25 [INFO    ] cryptosuite.server — Server: handshake complete, AES key=be4d0ac6b8863dca…
+2026-05-05 11:21:25 [INFO    ] cryptosuite.client — Client: connected and handshake complete
+2026-05-05 11:21:34 [DEBUG   ] cryptosuite.client — Client: sent 5 bytes, hash=2cf24dba5fb0a30e..., sig=511069d4dcbd89df...
+2026-05-05 11:21:34 [INFO    ] cryptosuite.server — Server [session 0]: received 5 bytes (hash_ok=True sig_ok=True)
+2026-05-05 11:21:34 [DEBUG   ] cryptosuite.client — Client: hash verified ✓
+2026-05-05 11:21:34 [DEBUG   ] cryptosuite.client — Client: signature verified ✓
+2026-05-05 11:22:06 [INFO    ] cryptosuite.client — Client: disconnected
+2026-05-05 11:22:49 [INFO    ] cryptosuite.server — Server: generating 2048-bit RSA keypairs (exchange + signing)…
+2026-05-05 11:22:49 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:22:50 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:22:50 [INFO    ] cryptosuite.server — Server: RSA keypairs ready
+2026-05-05 11:22:50 [INFO    ] cryptosuite.server — Server: listening on 127.0.0.1:9999
+2026-05-05 11:22:52 [INFO    ] cryptosuite.client — Client: generating 2048-bit RSA keypair for signing…
+2026-05-05 11:22:54 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:22:55 [INFO    ] cryptosuite.client — Client: RSA keypair for signing ready
+2026-05-05 11:22:55 [INFO    ] cryptosuite.client — [SECURE] Connected to 127.0.0.1:9999
+2026-05-05 11:22:55 [INFO    ] cryptosuite.server — Server: connection from ('127.0.0.1', 61189)
+2026-05-05 11:22:55 [INFO    ] cryptosuite.client — Client: received server's RSA public keys (key_exchange=2047 bits, signing=2048 bits)
+2026-05-05 11:22:55 [INFO    ] cryptosuite.server — Server: handshake complete, AES key=ed5641459bc355e2…
+2026-05-05 11:22:55 [INFO    ] cryptosuite.client — Client: handshake complete, AES key=ed5641459bc355e2…
+2026-05-05 11:22:55 [INFO    ] cryptosuite.client — Client: connected and handshake complete
+2026-05-05 11:23:00 [DEBUG   ] cryptosuite.client — Client: sent 5 bytes, hash=2cf24dba5fb0a30e..., sig=67b5d2720912befe...
+2026-05-05 11:23:00 [INFO    ] cryptosuite.server — Server [session 0]: received 5 bytes (hash_ok=True sig_ok=True)
+2026-05-05 11:23:00 [DEBUG   ] cryptosuite.client — Client: hash verified ✓
+2026-05-05 11:23:00 [DEBUG   ] cryptosuite.client — Client: signature verified ✓
+2026-05-05 11:23:16 [INFO    ] cryptosuite.client — Client: disconnected
+2026-05-05 11:23:16 [INFO    ] cryptosuite.server — Server: connection closed ('127.0.0.1', 61189)
+2026-05-05 11:26:47 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:26:47 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:26:48 [INFO    ] cryptosuite.udp_server — UDP server listening on 0.0.0.0:9998
+2026-05-05 11:26:54 [INFO    ] cryptosuite.rsa — RSA keygen: bits=2048 p_bits=1024 q_bits=1024
+2026-05-05 11:26:54 [INFO    ] cryptosuite.udp_server — Received HELLO from ('127.0.0.1', 59167)
+2026-05-05 11:26:54 [INFO    ] cryptosuite.udp_server — Sent HELLO (pubkeys) to ('127.0.0.1', 59167)
+2026-05-05 11:26:54 [INFO    ] cryptosuite.udp_server — Handshake done with ('127.0.0.1', 59167) (AES key established)
+2026-05-05 11:26:54 [INFO    ] cryptosuite.udp_client — Handshake complete with server 127.0.0.1:9998
+2026-05-05 11:26:59 [INFO    ] cryptosuite.udp_server — Received message from ('127.0.0.1', 59167): 5 bytes (hash_ok=True sig_ok=True)
